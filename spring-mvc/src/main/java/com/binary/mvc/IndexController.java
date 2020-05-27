@@ -1,7 +1,5 @@
 package com.binary.mvc;
 
-import annotation.RequestMapping;
-
 /**
  * @author Binary
  */

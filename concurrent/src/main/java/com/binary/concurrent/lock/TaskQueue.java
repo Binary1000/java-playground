@@ -2,6 +2,7 @@ package com.binary.concurrent.lock;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -22,15 +23,25 @@ public class TaskQueue {
         }
     }
 
-    public String getTask() throws InterruptedException {
+    public String getTask(long time, TimeUnit timeUnit) throws InterruptedException {
         lock.lock();
         try {
             while (queue.isEmpty()) {
-                condition.await();
+                if (!condition.await(time, timeUnit)) {
+                    return null;
+                }
             }
-            return queue.remove();
+            return queue.poll();
         } finally {
             lock.unlock();
         }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        TaskQueue taskQueue = new TaskQueue();
+        System.out.println(taskQueue.getTask(5, TimeUnit.SECONDS));
+        System.out.println(taskQueue.getTask(5, TimeUnit.SECONDS));
+        taskQueue.addTask("asdasdas");
+        System.out.println(taskQueue.getTask(5, TimeUnit.SECONDS));
     }
 }

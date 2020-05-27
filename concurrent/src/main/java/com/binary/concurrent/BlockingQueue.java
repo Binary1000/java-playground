@@ -17,5 +17,6 @@ public class BlockingQueue {
             e.printStackTrace();
         }
         System.out.println(poll);
+
     }
 }

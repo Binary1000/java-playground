@@ -22,6 +22,7 @@
     <module>java-basic</module>
     <module>netty</module>
     <module>spring-mvc</module>
+      <module>velocity</module>
   </modules>
 
   <name>java-playground</name>
@@ -38,6 +39,13 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
     </dependency>
 
     <dependency>

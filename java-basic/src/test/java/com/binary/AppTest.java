@@ -1,13 +1,17 @@
 package com.binary;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class AppTest
 {
     /**
      * Rigorous Test :-)
@@ -15,6 +19,16 @@ public class AppTest
     @Test
     public void shouldAnswerWithTrue()
     {
-        assertTrue( true );
+        List<String> list = new ArrayList<>();
+        list.add("asdas");
+        list.add("13");
+        list.add("3123");
+        System.out.println(list.size());
+        Iterator<String> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            String next = iterator.next();
+            iterator.remove();
+        }
+        System.out.println(list.size());
     }
 }

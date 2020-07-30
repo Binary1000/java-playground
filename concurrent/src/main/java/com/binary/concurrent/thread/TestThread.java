@@ -5,18 +5,7 @@ package com.binary.concurrent.thread;
  */
 public class TestThread {
 
-    public static void main(String[] args) throws InterruptedException {
-        Thread thread = new Thread("test") {
-            @Override
-            public void run() {
-                while (true) {
-
-                }
-            }
-        };
-
-        thread.start();
-        thread.join();
+    public static void main(String[] args) {
         System.out.println(1);
     }
 }
